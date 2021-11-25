@@ -17,3 +17,6 @@ tags: ToDo
 2. 【vue2】promise原理理解（实现代码）  10.31
 3. 【vue2底层】vue2底层学习笔记  10.31
 4. 【js】call方法作用及使用方式  10.31
+5. 【vue】模块化规范-require和import区别 11.8
+6. 【js】常用ES6技巧
+7. 【js】常用深浅拷贝记录
