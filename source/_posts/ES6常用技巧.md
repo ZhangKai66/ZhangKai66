@@ -42,3 +42,35 @@ ES6方法
 const c = [...new Set([...a,...b])];
 const g = {...d,...e} //解构赋值也是浅拷贝
 ```
+
+### if中判断条件
+```js
+if(type == 1 || type == 2 || type == 3 ) {...}
+// 改进之后 用es6新增的includes方法
+const condition = [1,2,3];
+if(condition.includes(type))
+```
+
+### 获取对象属性值的方法
+```js
+const name = obj && obj.name
+// 改进之后 es6的可选链操作符
+const name = obj?.name
+```
+
+### 输入框非空的判断
+```js
+if(value !== null && value !== undefined && value !== '')
+// 改进后 空值合并运算符
+if(value ?? '' !== '')
+```
+
+### 添加动态变化属性名的对象属性
+```js
+let obj = {}
+let index = 1;
+let key = `topic${index}`;
+obj[key] = '话题内容'
+// 改进之后 对象属性名用表达式
+obj[`topic${index}`] = '话题内容'
+```
