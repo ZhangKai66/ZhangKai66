@@ -8,6 +8,12 @@ tags: ToDo
 
 > 每次修改完记得提交到github
 
+什么都容易遗忘 基础都得夯实 
+html css js 移动端 webApi jquery node echarts vue react 微信小程序  
+
+当前最重要任务  **看面试题**
+看面试题书 将重要的写成博客
+
 ### blog配置相关
 1. 添加代码提交规范 commitlint插件 + husky插件  10.31
 
@@ -24,3 +30,5 @@ tags: ToDo
 9. 【js】手写new函数 bind（面试题已写） call apply 12.14
 10. 【css】@mixin
 11. 【css】用纯html+css3实现轮播图
+12. 【css】grid布局  1.1
+13. 【echarts】至少要用过一些
