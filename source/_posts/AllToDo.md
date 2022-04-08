@@ -32,3 +32,16 @@ html css js 移动端 webApi jquery node echarts vue react 微信小程序
 11. 【css】用纯html+css3实现轮播图
 12. 【css】grid布局  1.1
 13. 【echarts】至少要用过一些
+
+
+### 可提升方面
+1. js优化能力： 封装成类   封装成类的能力太弱
+
+
+### 当前任务
+#### 完成一个简易版qq   socket.io+vue+express+mysql
+两个页面 私聊 + 群聊 
+vue create 一个项目出来 完成
+#### qq项目
+qq前端项目   vue3-qq  注册  登录  聊天  三个页面
+qq后端express 用express-generator   封装successModel  errorModel 返回请求成功或失败的返回值  参考blog-express  导出module.exports  引入require
