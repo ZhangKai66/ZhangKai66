@@ -83,7 +83,7 @@ xialuo instanceof Student // true
 3. 实例的隐式原型指向对应class的显式原型
 4. class类具有定义的属性和方法，也有显式原型prototype。而将这个class类实例化后就有了隐式原型__proto__，即shilihua.__proto__ === Student.proptotype
 
-![](C:\Users\zhangkai\Pictures\前端面试题\原型图1.png)
+![原型图](../../public/img/prototype.png)
 
 #### 原型链
 1. 能手绘原型链图
@@ -230,4 +230,25 @@ loadImg(url).then(img => {
 ##### 前端使用异步的场景有哪些
 请求后台数据
 
-### JS异步-进阶
+## JS异步-进阶
+### event loop
+- event loop过程1
+  - 同步代码，一行一行放在call Stack执行
+  - 遇到异步，会先记录下，等待时机（定时，网络请求）
+  - 时机到了，就会移动到callback queue
+- event loop过程2
+  - 如果call stack为空（同步代码执行完），event loop开始工作
+  - 轮训查找callback queue，如果有则移动到call stack
+  - 然后继续轮训查找
+
+### dom事件与event loop关系
+
+1. js是单线程的
+2. 异步都是基于event loop的
+3. dom事件也使用回调，也是基于event loop
+
+```js
+$('#btn').on("click",function(e) { // 注意这里的click是立即执行的，但是function会被立刻放到webapi的库中，
+  console.log('btn clicked'); // 当用户点击click时，function会被放入到callback queue中
+})
+```
