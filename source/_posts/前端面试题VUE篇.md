@@ -130,6 +130,11 @@ Object.defineProperty()
 
 155page
 
+### vue组件的定时器怎么销毁
+
+- 如果页面上有很多个定时器，在data选项中添加一个timer对象，给每个定时器去一个名字一一映射在对象timer中，然后在beforeDestory函数中for循环clearInterval掉
+- 如果只有一个定时器，可以用`this.$once('hook:beforeDestory',()=>{ clearInterval(timer) })`
+
 ### Vue 中操作 data 中数组的方法中哪些可以触发视图更新，哪些不可以，不可以的话有什么解决办法
 
 > 可以触发更新
