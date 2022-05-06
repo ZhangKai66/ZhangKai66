@@ -27,6 +27,9 @@ c->vm vm是从c中抽离业务逻辑 相当于是在c基础上封装了一层
 ### Vue 数据双向绑定的原理是什么
 
 数据劫持结合发布者-订阅者模式
+数据劫持 Observer
+Dep 收集订阅者
+
 Object.defineProperty()
 待补充
 
@@ -109,23 +112,60 @@ Object.defineProperty()
 - $route 是路由信息对象，包括一些路由信息参数如。path, params, hash, query, fullPath, matched, name
 - $router 是VueRouter的实例，相当于一个全局的路由器对象，包含很多属性和子对象，如history对象，this.$router.push（）返回上一个history也是使用$router.go(-1)
 
+### vue router官网记录
+router文件中必须要有routes，路由数组：存放多个不同路由(放的是路由信息)，对应上面的$route
+```js
+const routes = [
+   {
+      path: "/about",
+      component: AboutComponent
+   }
+]
+```
+router实例是VueRouter这个插件的实例，routes路由信息是传给router实例的配置参数
+```js
+const router = new VueRouter({
+   routes: routes
+})
+```
+创建并挂在根实例，记得要通过router配置参数注入路由
+```js
+const app = new Vue({
+   router
+}).$mount('#app')
+```
+通过注入路由器，我们可以在任何组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前路由
+
+routes的meta字段是路由元信息 
+一个路由匹配到的所有路由记录会暴露为 $route 对象 (还有在导航守卫中的路由对象) 的 $route.matched 数组
+```js
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {} 
+}
+```
+`https://v3.router.vuejs.org/zh/guide/advanced/data-fetching.html#%E5%AF%BC%E8%88%AA%E5%AE%8C%E6%88%90%E5%90%8E%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE`
 ### Vue-Router的动态路由，怎么获取传过来的动态参数 ☆
 
 场景：User 组件，对于所有 ID 各不相同的用户，都要使用这个组件来渲染
 动态路径参数，使用“冒号”开头，一个路径参数，使用冒号标记，当匹配
 到一个路由时，参数会被设置到 this.$router.params 中，并且可以在每个组件
 中使用。
-
+like this: `{ path: '/user/:id', component: User }`
+在匹配到该路由之后，动态参数会被设置到this.$route.params
+`template: '<div>User {{ $route.params.id }}</div>'`
+也可以是多个参数
+like this: `/user/:username/post/:post_id` 与路由一一对应
 ### Vue-Router 的钩子函数都有哪些
-
+即 路由守卫 记住，在任务导航守卫中都要触发next函数
 主要分为三类
-1. 全局钩子beforeEach(to,from,next:function)
-2. 路由独享钩子 beforeEnter
+1. 全局钩子beforeEach(to,from,next:function) beforeResolve afterEach
+2. 路由独享钩子 beforeEnter  // 在routes数组中给某个特定的route单独设置路由狗子，参数一致
 3. 组件内钩子
-   - beforeRouterEnter
-   - beforeRouterUpdate
-   - beforeRouterLeave
-
+   - beforeRouterEnter // 不！能！获取组件实例 `this`
+   - beforeRouterUpdate // 在当前路由改变，但是该组件被复用时调用 对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候
+   - beforeRouterLeave // 导航离开该组件的对应路由时调用 可以访问组件实例 `this` （禁止用户在还未保存修改前突然离开）
+   - 
+用处：一般用的是beforeEach，可以判断用户身份，未登录则导航到Login页面
 ### 路由传值的方式有哪几种
 
 155page
