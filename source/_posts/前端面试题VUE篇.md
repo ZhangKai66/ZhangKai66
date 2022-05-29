@@ -1,7 +1,7 @@
 ---
 title: 前端面试题VUE篇
 date: 2021-12-19 23:15:04
-tags: Vue, 面试题
+tags: Vue, 面试
 ---
 
 ## Vue相关
@@ -63,10 +63,22 @@ Object.defineProperty()
 
 ### 组件之间是如何传值的
 
+父子组件: props $emit
+祖孙组件: provide inject
+兄弟组件: eventbus
+其他方式: vuex
 
 ### data为啥必须是函数
 
+确保vue的各个实例之间的数据不会相互影响 -- TODO:可优化说辞
 
+1.一个组件被复用多次的话，也就会创建多个实例。本质上，这些实例用的都是同一个构造函数。 2.如果data是对象的话，对象属于引用类型，会影响到所有的实例。所以为了保证组件不同的实例之间data不冲突，data必须是一个函数。
+
+### data compute watch之间有什么依赖关系
+
+### 为什么v-for和v-if不建议用在一起
+
+### 插槽相关
 
 ### 怎么监听路由参数的变化
 
@@ -75,7 +87,7 @@ Object.defineProperty()
 
 ### 如何显示组件缓存
 
-
+keep-alive -- TODO: 详细补充下
 
 ### 常用的修饰符
 
@@ -101,6 +113,8 @@ Object.defineProperty()
 ### Vue的template编译的理解
 
 简单说： 先转化成AST树，再得到render函数，并返回VNode
+详细版:
+
 
 ### Vue的两种路由模式 hash和history
 
@@ -168,7 +182,8 @@ like this: `/user/:username/post/:post_id` 与路由一一对应
 用处：一般用的是beforeEach，可以判断用户身份，未登录则导航到Login页面
 ### 路由传值的方式有哪几种
 
-155page
+params
+query
 
 ### vue组件的定时器怎么销毁
 
@@ -237,10 +252,10 @@ Object.assign(this.$data, this.$options.data(this))
 2. micro-task因为其高优先级特性，能确保队列中的微任务在一次事件循环前被执行完毕
 3. 因为兼容性问题，vue不得不做了microtask向macrotask的降级方案
 
+### mixin用过吗
+
 ### 待丰富
 
 Vue-Router的动态路由，怎么获取传过来的动态参数
 
 路由传值的方式有哪几种
-
-Vue-Router 的钩子函数都有哪些
