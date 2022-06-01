@@ -36,4 +36,20 @@ More info: [Generating](https://hexo.io/docs/generating.html)
 $ hexo deploy
 ```
 
+### How to use Fluid
+
+```js
+{% note success %}
+文字 或者 `markdown` 均可 便签
+{% endnote %}
+
+{% label primary @text %}  label
+
+{% cb text, checked?, incline? %}  checkbox
+
+{% btn url, text, title %} button
+
+
+```
+
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)

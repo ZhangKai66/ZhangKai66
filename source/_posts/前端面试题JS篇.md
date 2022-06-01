@@ -2,6 +2,8 @@
 title: 前端面试题JS篇
 date: 2021-11-30 20:22:56
 tags: 面试,
+categories:
+- 面试题
 ---
 
 ## JS基础篇

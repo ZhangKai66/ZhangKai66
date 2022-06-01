@@ -2,6 +2,8 @@
 title: ES6常用技巧
 date: 2021-11-25 23:06:49
 tags: ES6
+categories:
+- javascript
 ---
 
 ## ES6

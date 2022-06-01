@@ -2,6 +2,8 @@
 title: JS字符串方法
 date: 2022-02-23 22:24:34
 tags: js
+categories:
+- javascript
 ---
 
 ## js基础 --- js字符串方法

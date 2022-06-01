@@ -2,6 +2,8 @@
 title: async和await
 date: 2021-11-08 21:23:37
 tags: javascript, async, await
+categories:
+- javascript
 ---
 
 # async await要点

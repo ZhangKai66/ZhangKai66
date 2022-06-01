@@ -2,6 +2,8 @@
 title: 用js实现常见的数据结构
 date: 2022-05-11 22:54:46
 tags: 数据结构
+categories:
+- 算法
 ---
 ### stack栈
 ```js
