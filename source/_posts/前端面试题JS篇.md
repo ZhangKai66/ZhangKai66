@@ -72,6 +72,9 @@ class Son extends  Student {
   }
 }
 ```
+
+### 有哪几种继承方式
+
 ### instanceof进行类型判断
 ```js
 xialuo instanceof Student // true
@@ -81,28 +84,60 @@ xialuo instanceof Student // true
 
 ### defer和async的区别
 
-
+1. 默认模式下，当浏览器遇到 script 标签时，文档的解析将停止，并立即下载并执行脚本，脚本执行完毕后将继续解析文档
+2. async模式，当浏览器遇到 script 标签时，文档的解析不会停止，其他线程将下载脚本，脚本下载完成后开始执行脚本，脚本执行的过程中文档将停止解析，直到脚本执行完毕。
+3. defer模式，当浏览器遇到 script 标签时，文档的解析不会停止，其他线程将下载脚本，待到文档解析完成，脚本才会执行。（有顺序）脚本依赖于dom文档中元素时
 
 ### 节流防抖代码实现
 ```js
 // 节流
-
+function throttle(fn,threshold = 200) {
+  let timeout;
+  let start = new Date();
+  return function() {
+    const current = new Date() - 0;
+    timeout && clearTimeout(timeout);
+    if(current - start >= threshold) {
+      fn.call(this, ...arguments);
+      start = current;
+    }else {
+      timeout = setTimeout(fn.bind(this), threshold, ...arguments);
+    }
+  }
+}
 // 防抖
+function debounce (fn, delay = 200) {
+  let timeout;
+  return function() {
+    // 重新计时
+    timeout && clearTimeout(timeout);
+    timeout = setTimeout(fn.bind(this), delay, ...arguments);
+  }
+}
 
 ```
 
 #### 原型
 1. 每个class都有显式原型prototype
-2. 每个class实例化后都有隐式原型__proto__
+2. 每个class实例化后的对象都有隐式原型__proto__
 3. 实例的隐式原型指向对应class的显式原型
 4. class类具有定义的属性和方法，也有显式原型prototype。而将这个class类实例化后就有了隐式原型__proto__，即shilihua.__proto__ === Student.proptotype
 
 ![原型图](../../../../img/prototype.png)
 
 #### 原型链
-1. 能手绘原型链图
+
+首先，每个对象在初始化的时候都会被添加上__proto__属性，指向该对象的原型对象，同时在js中万物皆对象，所以该对象的原型对象也有__proto__属性指向它的原型对象，这样一直指下去就会形成一个原型形成的链，简称原型链。
 
 ### 闭包
+#### 什么是闭包
+
+闭包指一个函数有权访问另一个函数作用域中的变量
+
+#### 创建闭包的常见方法
+
+创建闭包最常见方式，就是在一个函数内部创建另一个函数
+
 #### 闭包的表现
 1. 函数作为参数被传递
 ```js
@@ -249,6 +284,7 @@ loadImg(url).then(img => {
 请求后台数据
 
 ## JS异步-进阶
+
 ### event loop
 - event loop过程1
   - 同步代码，一行一行放在call Stack执行
@@ -285,6 +321,17 @@ $('#btn').on("click",function(e) { // 注意这里的click是立即执行的，�
   - object.observe
   - mutationObserve
 
-### 前端性能优化 -- js相关
+### 前端性能优化 
 
 ### 箭头函数的优点
+
+1. 简洁的语法
+2. 可以隐式返回，可省略大括号和return，减少代码量
+3. this的指向问题，箭头函数内的 this 是词法绑定的，与外层函数保持一致
+
+### 箭头函数的缺点
+
+1. 做为构造函数的时候不能使用箭头函数
+2. 真正需要this的时候如给元素绑定click事件的时候,执行的回调函数不能使用箭头函数。
+3. 我们需要使用arguments对象的时候不能使箭头函数。箭头函数中没有arguments对象。
+4. 对象的方法也不可以使用箭头函数

@@ -256,6 +256,10 @@ Object.assign(this.$data, this.$options.data(this))
 
 ### mixin用过吗
 
+### 虚拟dom的介绍及其优点
+
+### vue底层是怎么实现对数组的监听的
+
 ### 待丰富
 
 Vue-Router的动态路由，怎么获取传过来的动态参数
