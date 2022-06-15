@@ -6,17 +6,54 @@ categories:
 - 面试题
 ---
 
-1. property和attribute的区别
+### 介绍下 BFC 及其应用
+BFC(Block Formarting Context) 块级格式化上下文 TODO:
+### property和attribute的区别
 
 property是dom元素对象的一个属性，是js里面的对象 值可以是对象、数组在内的任何类型
 attribute是html标签上的属性，值只能是字符串
 
 建议使用property，因为attribute的每次修改都会触发页面重绘
 
-2. 正则表达式
-`var reg = /^(A|D|W|S){1}[0-9]{1,2}$/;`
+### 怎么让一个 div 水平垂直居中
 
+1. margin+定位
+``` css
+position:absolute;
+top:50%;
+left:50%;
+margin-left: -50%*width;
+margin-top: -50%*height;
+```
+2. 定位+transform
+``` css
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+```
+3. margin:auto
+``` css
+position: absolute;
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+```
+4. flex
+``` css
+display: flex;
+justify-content: center;
+align-items: center;
+```
+5. grid
+``` css
+/* father */
+display:grid;
+/* child */
+justify-self: center;
+align-self: center;
+```
 
-3. padStart、padEnd、parseInt的第二参数
-padStart的第一参数n 是指将目标字符串用第二参数c扩充到n位（是一共n位 不是n个c）
-parseInt第二参数是 将第一个参数以几进制转换2-36
+### 

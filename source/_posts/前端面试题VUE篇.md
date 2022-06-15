@@ -59,10 +59,6 @@ Object.defineProperty()
 
 了解各部分是干啥的
 
-### 封装过 Vue 的组件吗
-
-☆
-
 ### 组件之间是如何传值的
 
 父子组件: props $emit
@@ -97,6 +93,11 @@ keep-alive -- TODO: 详细补充下
 - stop
 - self
 - capture
+
+
+### 封装过 Vue 的组件吗
+
+☆
 
 ### Vue踩过的坑
 

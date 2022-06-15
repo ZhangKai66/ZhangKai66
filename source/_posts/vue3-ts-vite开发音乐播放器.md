@@ -2,7 +2,6 @@
 title: vue3+ts+vite开发音乐播放器
 date: 2022-05-27 23:18:48
 tags:
-index_img: /img/moon.jpg
 banner_img: /img/moon.jpg
 categories:
 - 项目

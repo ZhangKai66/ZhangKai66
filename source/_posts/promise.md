@@ -1,7 +1,7 @@
 ---
 title: promise
 date: 2022-04-14 23:30:10
-tags: javascript, promise, async, await
+tags: promise
 categories:
 - javascript
 ---
