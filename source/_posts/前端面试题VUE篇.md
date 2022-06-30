@@ -221,7 +221,7 @@ this.arr.splice(index,1,newValue)
 
 >解决第二种
 
-this.arr.splce(newLength)
+this.arr.splice(newLength)
 
 ### 怎么重置Vue中的data
 
