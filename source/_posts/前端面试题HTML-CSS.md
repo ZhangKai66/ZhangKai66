@@ -90,3 +90,12 @@ border-box:  IE盒
 > 最小化重绘和重排，用类名class改样式
 > 批量操作dom 减少offsetWidth等计算属性的使用，可用临时变量保存
 > 开启GPU加速 tranform或will-change属性，我们使用 translate 会比使用绝对定位改变其 left 、top 等来的高效，因为它不会触发重排或重绘，transform 使浏览器为元素创建⼀个 GPU 图层，这使得动画元素在一个独立的层中进行渲染。当元素的内容没有发生改变，就没有必要进行重绘。
+
+### 主页置灰效果
+```style 
+html {
+    -webkit-filter: grayscale(100%);
+    /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+  }
+```
