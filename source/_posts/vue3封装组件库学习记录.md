@@ -5,7 +5,7 @@ tags: vue3,封装组件
 ---
 
 ### 1.子组件添加v-bind="$attrs"即可将父组件中未通过props传递的属性全部注入绑定到子组件中
-``` vue
+``` js
 // 父组件
 <m-menu
   :data="data1"
@@ -30,7 +30,7 @@ const data = [{
   c:'c'
 }];
 ```
-``` vue
+``` js
 <m-sub-comp :name="a" :icon="b" :children="c" />
 ```
 子组件中可以直接用props.name等进行其他操作
@@ -48,7 +48,7 @@ if(el) el.scrollIntoView();
 <m-son :v-model="visible" />
 ```
 子组件中： 两次监听，一次监听父组件props的值以修改子组件的显示隐藏值，第二次监听子组件显示隐藏值 以分发事件给父组件，父组件以v-model的形式接收
-``` typescript
+``` js
 watch(
   () => props.visible,
   (newVal) => {
@@ -65,7 +65,7 @@ watch(
 ```
 
 ### 5.全局封装注册图标组件
-```vue
+``` js
 import * as Icons from "@element-plus/icons-vue";
 // Icons是包含所有图标组件的对象
 for (const i in Icons) {

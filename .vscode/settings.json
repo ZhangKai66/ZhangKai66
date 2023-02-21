@@ -1,5 +1,5 @@
 {
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "'Input Mono Thin',  'Microsoft JhengHei Light', Consolas, 'Courier New', monospace",
   "editor.cursorStyle": "line-thin",
   "editor.fontSize": 18,
